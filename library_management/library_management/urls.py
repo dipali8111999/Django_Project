@@ -10,5 +10,4 @@ router.register('Studentapi', views.StudentViewSet, basename='StudentInfo')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
-    path('st/',include(router.urls)),
 ]
