@@ -12,7 +12,7 @@ class Book(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='BookName')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='book')
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=100)
 
