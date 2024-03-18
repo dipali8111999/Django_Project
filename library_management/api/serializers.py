@@ -9,6 +9,6 @@ class BookSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        bookread = serializers.SlugRelatedField(many=True, read_only=True,slug_field='bookname')
+        book = serializers.SlugRelatedField(many=True, read_only=True,slug_field='bookname')
         model = Student
         fields = ['id', 'name', 'email', 'password','book']
