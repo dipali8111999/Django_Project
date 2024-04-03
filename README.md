@@ -1,1 +1,1 @@
-# Django_Project
+# Django_rest_framework
