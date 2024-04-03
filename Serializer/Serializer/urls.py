@@ -6,5 +6,6 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('studentinfo/', views.student_detail),
+    path('studentinfo/<int:pk>', views.student_detail),
+    path('studentlist/', views.student_list),
 ]

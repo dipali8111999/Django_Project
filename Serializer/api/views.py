@@ -2,11 +2,11 @@ from django.shortcuts import render
 from .models import Student 
 from .serializer import StudentSerializer
 from rest_framework.renderers import JSONRenderer
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 
 
-def student_detail(request):
-    stu = Student.objects.get(id=1)
+def student_detail(request,pk):
+    stu = Student.objects.get(id=pk)
     print(stu)
     serializer = StudentSerializer(stu)
     print(serializer)
@@ -14,3 +14,10 @@ def student_detail(request):
     json_data = JSONRenderer().render(serializer.data)
     print(json_data)
     return HttpResponse(json_data, content_type='application/json')
+
+
+def student_list(request):
+    stu = Student.objects.all()
+    print(stu)
+    serializer = StudentSerializer(stu, many=True)
+    return JsonResponse(serializer.data, safe=False)
